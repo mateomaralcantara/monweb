@@ -14,7 +14,7 @@ const TestimonialsSection = () => {
             Lo que dicen nuestros clientes
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Más de 500 empresarios han transformado sus negocios con MonSeoWeb
+            Más de 1,500 empresarios han transformado sus negocios con MonSeo Web
           </p>
         </div>
 
@@ -76,7 +76,7 @@ const TestimonialsSection = () => {
             </Badge>
             <Badge variant="outline" className="px-6 py-3 text-lg font-semibold">
               <Quote className="w-5 h-5 mr-2 text-blue-400" />
-              98% recomiendan MonSeoWeb
+              99% recomiendan MonSeoWeb
             </Badge>
           </div>
 
@@ -84,7 +84,7 @@ const TestimonialsSection = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
               <div className="text-3xl font-black bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
-                500+
+                1,500+
               </div>
               <div className="text-muted-foreground font-semibold">Clientes felices</div>
             </div>

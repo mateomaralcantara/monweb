@@ -279,11 +279,11 @@ export const webBuilderSteps = [
 ];
 
 export const companyInfo = {
-  name: "MonSeoWeb",
-  tagline: "Páginas web desde $50 inicial",
+  name: "MonSeo Web",
+  tagline: "Páginas Web desde $50 inicial",
   description: "Creamos páginas web profesionales y autogestionables que impulsan tu negocio online",
-  phone: "+1 (555) 123-4567",
-  whatsapp: "+1555123456",
-  email: "info@monseoweb.com",
-  address: "123 Web Street, Digital City, DC 12345"
+  phone: "+1 (809) 252-7044",
+  whatsapp: "+15708614963",
+  email: "istemsd@gmail.com",
+  address: "123 North Wyoming Street, 18201, Hazleton PA"
 };

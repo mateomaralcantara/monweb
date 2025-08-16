@@ -25,18 +25,40 @@ const ContactPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock form submission
-    alert('¡Mensaje enviado! Te contactaremos pronto.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
-    });
+  
+    try {
+      const res = await fetch('http://localhost:8000/api/status', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          client_name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message
+        })
+      });
+  
+      if (res.ok) {
+        alert('¡Mensaje enviado! Te contactaremos pronto.');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: ''
+        });
+      } else {
+        const err = await res.text();
+        alert('Error al enviar el mensaje: ' + err);
+      }
+    } catch (error) {
+      alert('Error de red: ' + error.message);
+    }
   };
+  
 
   const services = [
     'Página web básica',
@@ -105,7 +127,7 @@ const ContactPage = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        placeholder="tu@email.com"
+                        placeholder="istemsd@gmail.com"
                         required
                         className="rounded-lg"
                       />
@@ -122,7 +144,7 @@ const ContactPage = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        placeholder="+1 (555) 123-4567"
+                        placeholder="+1 809) 252-7044"
                         className="rounded-lg"
                       />
                     </div>
@@ -228,7 +250,7 @@ const ContactPage = () => {
                       <h4 className="font-semibold">Horario</h4>
                       <p className="text-muted-foreground">
                         Lunes - Viernes: 9:00 - 18:00<br />
-                        Sábados: 10:00 - 14:00
+                        Sábados: 10:00 - 15:00
                       </p>
                     </div>
                   </div>

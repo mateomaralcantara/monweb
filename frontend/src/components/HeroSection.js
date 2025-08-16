@@ -21,7 +21,7 @@ const HeroSection = () => {
           {/* Badge */}
           <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md rounded-full px-4 py-2 text-white">
             <Star className="w-4 h-4 text-yellow-400 fill-current" />
-            <span className="text-sm font-medium">Más de 500+ webs creadas</span>
+            <span className="text-sm font-medium">Más de 1,500+ webs creadas</span>
           </div>
 
           {/* Main Heading */}
@@ -35,7 +35,7 @@ const HeroSection = () => {
           {/* Subheading */}
           <p className="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
             Diseños ultra modernos y completamente autogestionables. 
-            <span className="font-bold text-yellow-300"> Tu web lista en 3 días.</span>
+            <span className="font-bold text-yellow-300"> Tu web lista en 5 días.</span>
           </p>
 
           {/* Features List */}
@@ -79,15 +79,15 @@ const HeroSection = () => {
           {/* Trust Indicators */}
           <div className="mt-12 flex flex-col sm:flex-row justify-center items-center gap-8 text-white/70">
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">500+</div>
+              <div className="text-2xl font-bold text-white">1,500+</div>
               <div className="text-sm">Webs creadas</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">98%</div>
+              <div className="text-2xl font-bold text-white">99%</div>
               <div className="text-sm">Clientes satisfechos</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">24h</div>
+              <div className="text-2xl font-bold text-white">24/7</div>
               <div className="text-sm">Soporte promedio</div>
             </div>
           </div>

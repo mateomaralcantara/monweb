@@ -87,7 +87,7 @@ const WhyChooseUs = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent mb-4">
-            ¿Por qué elegir MonSeoWeb?
+            ¿Por qué elegir MonSeo Web?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             No solo creamos webs, construimos experiencias digitales que convierten visitantes en clientes
@@ -134,19 +134,19 @@ const WhyChooseUs = () => {
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="text-center">
             <div className="text-3xl font-black bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
-              500+
+              1,500+
             </div>
             <div className="text-muted-foreground font-semibold">Webs Creadas</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-black bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
-              98%
+              99%
             </div>
             <div className="text-muted-foreground font-semibold">Satisfacción</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-black bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-              3 días
+              5días
             </div>
             <div className="text-muted-foreground font-semibold">Entrega</div>
           </div>

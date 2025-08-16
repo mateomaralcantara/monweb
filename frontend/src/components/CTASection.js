@@ -83,7 +83,7 @@ const CTASection = () => {
                 <img className="w-8 h-8 rounded-full border-2 border-white" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face" alt="Cliente" />
                 <img className="w-8 h-8 rounded-full border-2 border-white" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face" alt="Cliente" />
               </div>
-              <span className="text-sm font-medium">500+ clientes satisfechos</span>
+              <span className="text-sm font-medium">1,500+ clientes satisfechos</span>
             </div>
             <div className="text-sm">
               <div className="flex items-center space-x-1">
