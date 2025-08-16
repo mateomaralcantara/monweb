@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { apiFetch } from "../services/api"; // 👈 importamos el helper
 
 const initialState = {
   businessName: "",
@@ -6,8 +7,8 @@ const initialState = {
   description: "",
   colorPrimary: "#DC2626",
   colorSecondary: "#EA580C",
-  template: "Restaurante Gourmet", // Puedes pasarlo como prop si viene de selección previa
-  funcionalidades: [],            // Si tienes checkboxes de funcionalidades, añade aquí
+  template: "Restaurante Gourmet",
+  funcionalidades: [],
 };
 
 const businessTypes = [
@@ -20,47 +21,41 @@ export default function CreateWeb() {
   const [step, setStep] = useState(1);
   const [success, setSuccess] = useState(false);
 
-  // Maneja los cambios en los inputs
   const handleChange = e => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }));
   };
 
-  // Simula avanzar y retroceder pasos
   const next = () => setStep(step + 1);
   const prev = () => setStep(step - 1);
 
-  // Envía el formulario
+  // 👉 aquí usamos apiFetch en vez de fetch directo
   const handleSubmit = async e => {
     e.preventDefault();
     setLoading(true);
     try {
-      // Aquí adaptas el fetch a tu backend:
-      const res = await fetch("http://localhost:8000/api/status", {
+      const res = await apiFetch("/status", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           client_name: form.businessName,
-          email: "cliente@email.com", // <-- puedes pedirlo en otro paso
-          phone: "",                  // <-- si lo necesitas
+          email: "cliente@email.com",
+          phone: "",
           service: `${form.businessType} - ${form.template}`,
           message: `Descripción: ${form.description}\nColores: ${form.colorPrimary}, ${form.colorSecondary}\nFuncionalidades: ${form.funcionalidades.join(", ")}`
         })
       });
 
-      if (res.ok) {
+      if (res) {
         setSuccess(true);
         setStep(3);
-      } else {
-        alert("Error enviando tu información. Intenta de nuevo.");
       }
     } catch (err) {
-      alert("Error de red: " + err.message);
+      alert("❌ Error enviando: " + err.message);
     }
     setLoading(false);
   };
 
-  // ---- Renderizado por pasos (stepper) ----
+  // ---- Paso 1
   if (step === 1) {
     return (
       <form onSubmit={next} className="max-w-lg mx-auto p-8 bg-white rounded-2xl shadow-lg space-y-6 mt-8">
@@ -88,16 +83,15 @@ export default function CreateWeb() {
         <textarea
           name="description"
           required
-          placeholder="Describe brevemente tu negocio, productos o servicios..."
+          placeholder="Describe brevemente tu negocio..."
           value={form.description}
           onChange={handleChange}
           className="w-full p-2 border rounded"
           rows={3}
         />
-        {/* Colores */}
         <div className="flex space-x-4">
           <div>
-            <label className="block text-xs text-muted-foreground mb-1">Color principal</label>
+            <label className="block text-xs mb-1">Color principal</label>
             <input
               type="color"
               name="colorPrimary"
@@ -107,7 +101,7 @@ export default function CreateWeb() {
             />
           </div>
           <div>
-            <label className="block text-xs text-muted-foreground mb-1">Color secundario</label>
+            <label className="block text-xs mb-1">Color secundario</label>
             <input
               type="color"
               name="colorSecondary"
@@ -124,8 +118,8 @@ export default function CreateWeb() {
     );
   }
 
+  // ---- Paso 2
   if (step === 2) {
-    // "Confirmación"
     return (
       <div className="max-w-lg mx-auto p-8 bg-white rounded-2xl shadow-lg space-y-8 mt-8">
         <h2 className="text-2xl font-bold mb-2">¡Tu web está lista!</h2>
@@ -158,8 +152,8 @@ export default function CreateWeb() {
     );
   }
 
+  // ---- Paso 3
   if (step === 3 && success) {
-    // "Gracias"
     return (
       <div className="max-w-lg mx-auto p-8 bg-white rounded-2xl shadow-lg mt-8 text-center">
         <h2 className="text-2xl font-bold mb-4 text-green-600">¡Proyecto recibido! 🚀</h2>
